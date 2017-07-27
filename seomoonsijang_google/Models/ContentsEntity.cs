@@ -10,8 +10,8 @@ namespace seomoonsijang_google.Models
     {
         public ContentsEntity(string patKey, string rKey)
         {
-            this.PartitionKey = patKey;
-            this.RowKey = rKey;
+            PartitionKey = patKey;
+            RowKey = rKey;
         }
 
         public ContentsEntity() { }

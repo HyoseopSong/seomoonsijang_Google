@@ -26,6 +26,7 @@ namespace seomoonsijang_google.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult Contact()
         {
             //var msg = new SendGridMessage();
@@ -50,20 +51,25 @@ namespace seomoonsijang_google.Controllers
 
 
             //ViewBag.Message = System.Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
+            ViewBag.Cookie = User.Identity.Name;
 
             return View();
         }
         [HttpPost]
+        [Authorize]
         public ActionResult Contact(HttpPostedFileBase file, ContentsEntity contents)
         {
 
             if (file != null & contents != null)
             {
-                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("MS_AzureStorageAccountConnectionString"));
+                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("westgateproject_AzureStorageConnectionString"));
 
                 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
                 CloudBlobContainer container = blobClient.GetContainerReference("blob1");
                 ViewBag.BlobSuccess = container.CreateIfNotExists();
+                CloudBlockBlob blob = container.GetBlockBlobReference(file.FileName);
+                blob.UploadFromStream(file.InputStream);
+                ViewBag.Message = file.FileName;
 
                 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
                 CloudTable table = tableClient.GetTableReference("WestGateMarket");
@@ -76,14 +82,11 @@ namespace seomoonsijang_google.Controllers
                 ViewBag.TableName = table.Name;
                 ViewBag.Result = result.HttpStatusCode;
 
-                CloudBlockBlob blob = container.GetBlockBlobReference(file.FileName);
-                blob.UploadFromStream(file.InputStream);
-                ViewBag.Message = file.FileName;
 
             }
             else if (file == null & contents != null)
             {
-                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("MS_AzureStorageAccountConnectionString"));
+                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("westgateproject_AzureStorageConnectionString"));
                 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
                 CloudTable table = tableClient.GetTableReference("WestGateMarket");
                 ViewBag.TableSuccess = table.CreateIfNotExists();

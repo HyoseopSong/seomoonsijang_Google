@@ -1,0 +1,8 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <ul class="nav navbar-nav navbar-right">
+
+        <li><a>@HttpContext.Current.User.Identity.Name</a></li>
+
+    </ul>
+}

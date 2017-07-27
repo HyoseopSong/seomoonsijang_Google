@@ -189,7 +189,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Connected Services\westgateprojectAzureStorage\ConnectedService.json" />
     <Content Include="Areas\쇠젓가락\Views\web.config" />
     <Content Include="Areas\칭기즈칸\Views\web.config" />
     <Content Include="Areas\쇠젓가락\Views\_ViewStart.cshtml" />
@@ -198,6 +197,8 @@
     <Content Include="Areas\칭기즈칸\Views\_ViewStart.cshtml" />
     <Content Include="Areas\칭기즈칸\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\칭기즈칸\Views\Home\Index.cshtml" />
+    <Content Include="Connected Services\westgateprojectAzureStorage\ConnectedService.json" />
+    <None Include="Properties\PublishProfiles\seomoonsijang20170727085850 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\seomoonsijanggoogle20170727075935 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -234,6 +235,7 @@
     <Content Include="Views\FloorInfo\SecondSecond.cshtml" />
     <Content Include="Views\FloorInfo\SecondThird.cshtml" />
     <Content Include="Views\FloorInfo\Union.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
