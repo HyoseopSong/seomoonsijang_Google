@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<sitemanifest>
-  <IisApp path="c:\users\seopj_1y0efbg\onedrive\문서\visual studio 2017\Projects\seomoonsijang_google\seomoonsijang_google\obj\Release\Package\PackageTmp" />
-  <setAcl path="c:\users\seopj_1y0efbg\onedrive\문서\visual studio 2017\Projects\seomoonsijang_google\seomoonsijang_google\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
-  <setAcl path="c:\users\seopj_1y0efbg\onedrive\문서\visual studio 2017\Projects\seomoonsijang_google\seomoonsijang_google\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
-</sitemanifest>
