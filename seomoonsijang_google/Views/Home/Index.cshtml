@@ -24,8 +24,10 @@
     </div>
     <div class="col-md-4">
         <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <img src="https://westgateproject.blob.core.windows.net/blob1/2017-07-30%20PM%2010%3A52%3A53.jpg" width="300" height="217" alt="테스트 이미지" />
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">
+               <img src="https://westgateproject.blob.core.windows.net/blob1/2017-07-31%20AM%2012%3A12%3A00.jpg" width="300" height="217" alt="테스트 이미지" />
+            </a></p>
     </div>
 </div>
 <div>
@@ -34,3 +36,20 @@
         <strong>운영자 e-mail :</strong> <a href="mailto:chopsticksOfMetal@gmail.com">chopsticksOfMetal@gmail.com</a>
     </address>
 </div>
+<p id="demo"></p>
+<img id="sampleImage" src="https://westgateproject.blob.core.windows.net/blob1/2017-07-31%20PM%204%3A47%3A05.jpg" width="300"/>
+
+<script>
+    document.getElementById('sampleImage').onload = function (e) {
+        loadImage(
+            "https://westgateproject.blob.core.windows.net/blob1/2017-07-31%20PM%204%3A47%3A05.jpg",
+            function (img) {
+                document.body.appendChild(img);
+            },
+            {
+                orientation: true
+            }
+        );
+    };
+
+</script>

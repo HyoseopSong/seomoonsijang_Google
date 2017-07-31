@@ -198,8 +198,8 @@
     <Content Include="Areas\칭기즈칸\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\칭기즈칸\Views\Home\Index.cshtml" />
     <Content Include="Connected Services\westgateprojectAzureStorage\ConnectedService.json" />
+    <None Include="Properties\PublishProfiles\seomoonsijang - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\seomoonsijang20170727085850 - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\seomoonsijanggoogle20170727075935 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -208,6 +208,18 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\demo\demo.js" />
+    <Content Include="Scripts\js\index.js" />
+    <Content Include="Scripts\js\load-image-exif-map.js" />
+    <Content Include="Scripts\js\load-image-exif.js" />
+    <Content Include="Scripts\js\load-image-fetch.js" />
+    <Content Include="Scripts\js\load-image-meta.js" />
+    <Content Include="Scripts\js\load-image-orientation.js" />
+    <Content Include="Scripts\js\load-image-scale.js" />
+    <Content Include="Scripts\js\load-image.all.min.js" />
+    <Content Include="Scripts\js\load-image.js" />
+    <Content Include="Scripts\js\vendor\jquery.Jcrop.js" />
+    <Content Include="Scripts\js\vendor\jquery.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -236,6 +248,7 @@
     <Content Include="Views\FloorInfo\SecondThird.cshtml" />
     <Content Include="Views\FloorInfo\Union.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Scripts\js\load-image.all.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

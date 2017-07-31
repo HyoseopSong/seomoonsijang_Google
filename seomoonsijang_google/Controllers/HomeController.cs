@@ -51,8 +51,7 @@ namespace seomoonsijang_google.Controllers
 
 
             //ViewBag.Message = System.Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
-            ViewBag.Cookie = User.Identity.Name;
-
+            
             return View();
         }
         [HttpPost]
@@ -60,49 +59,40 @@ namespace seomoonsijang_google.Controllers
         public ActionResult Contact(HttpPostedFileBase file, ContentsEntity contents)
         {
 
-            if (file != null & contents != null)
-            {
-                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("westgateproject_AzureStorageConnectionString"));
+            var blobName = DateTime.Now.ToString();
+            blobName = blobName.Replace("/", "-");
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("MS_AzureStorageAccountConnectionString"));
 
+            if (file != null)
+            {
                 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
                 CloudBlobContainer container = blobClient.GetContainerReference("blob1");
-                ViewBag.BlobSuccess = container.CreateIfNotExists();
-                CloudBlockBlob blob = container.GetBlockBlobReference(file.FileName);
+                CloudBlockBlob blob = container.GetBlockBlobReference(blobName);
+                blob.Properties.ContentType = "image/jpeg";
                 blob.UploadFromStream(file.InputStream);
+                
                 ViewBag.Message = file.FileName;
 
-                CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-                CloudTable table = tableClient.GetTableReference("WestGateMarket");
-                ViewBag.TableSuccess = table.CreateIfNotExists();
-                contents.PartitionKey = "파티션키1";
-                contents.RowKey = "로우키1";
-                contents.Filename = file.FileName;
-                TableOperation insertOperation = TableOperation.Insert(contents);
-                TableResult result = table.Execute(insertOperation);
-                ViewBag.TableName = table.Name;
-                ViewBag.Result = result.HttpStatusCode;
-
-
             }
-            else if (file == null & contents != null)
+            else
             {
-                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("westgateproject_AzureStorageConnectionString"));
+                blobName = "empty";
+            }
+
+            if (contents != null)
+            {
                 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
                 CloudTable table = tableClient.GetTableReference("WestGateMarket");
                 ViewBag.TableSuccess = table.CreateIfNotExists();
-                contents.PartitionKey = "파티션키";
-                contents.RowKey = "로우키";
+                contents.PartitionKey = User.Identity.Name;
+                contents.RowKey = blobName;
                 TableOperation insertOperation = TableOperation.Insert(contents);
                 TableResult result = table.Execute(insertOperation);
                 ViewBag.TableName = table.Name;
                 ViewBag.Result = result.HttpStatusCode;
                 ViewBag.Message = "PartitionKey : " + contents.PartitionKey + "RowKey : " + contents.RowKey + "Text : " + contents.Text;
             }
-            else
-            {
-
-            }
-
+            
             return View();
         }
     }
