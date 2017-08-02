@@ -15,6 +15,8 @@
             <area shape="rect" coords="0, 0, 262, 96.5" href="https://itunes.apple.com/us/app/apple-store/id375380948?mt=8" alt="Available on Appstore" />
             <area shape="rect" coords="0, 96.5, 262, 193" href="https://play.google.com/store/apps/details?id=hyoseop.metal.chopsticks.westgateproject" alt="Available on Google Play" />
         </map>
+
+        <p id="demo"></p>
     </div>
     <div class="col-md-4">
         <h2>서문시장 약도</h2>
@@ -24,9 +26,9 @@
     </div>
     <div class="col-md-4">
         <h2>Web Hosting</h2>
-        <img src="https://westgateproject.blob.core.windows.net/blob1/2017-07-30%20PM%2010%3A52%3A53.jpg" width="300" height="217" alt="테스트 이미지" />
+        <img id="testImage" src="https://westgateproject.blob.core.windows.net/blob1/2017-07-30%20PM%2010%3A52%3A53.jpg" width="300" height="217" alt="테스트 이미지" />
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">
-               <img src="https://westgateproject.blob.core.windows.net/blob1/2017-07-31%20AM%2012%3A12%3A00.jpg" width="300" height="217" alt="테스트 이미지" />
+               <img id="myImage" src="https://westgateproject.blob.core.windows.net/blob1/2017-07-31%20PM%204%3A47%3A05.jpg" onclick="rotateRight(this)" height="300" alt="테스트 이미지" />
             </a></p>
     </div>
 </div>
@@ -36,20 +38,52 @@
         <strong>운영자 e-mail :</strong> <a href="mailto:chopsticksOfMetal@gmail.com">chopsticksOfMetal@gmail.com</a>
     </address>
 </div>
-<p id="demo"></p>
-<img id="sampleImage" src="https://westgateproject.blob.core.windows.net/blob1/2017-07-31%20PM%204%3A47%3A05.jpg" width="300"/>
-
+<div id="here">
+    <img id="sampleImage" src="https://westgateproject.blob.core.windows.net/blob1/2017-07-31%20PM%204%3A47%3A05.jpg" onclick="rotateRight(this)" style="width:710px;"/>
+</div>
 <script>
-    document.getElementById('sampleImage').onload = function (e) {
-        loadImage(
-            "https://westgateproject.blob.core.windows.net/blob1/2017-07-31%20PM%204%3A47%3A05.jpg",
-            function (img) {
-                document.body.appendChild(img);
-            },
-            {
-                orientation: true
-            }
-        );
-    };
-
+    function rotateRight(element) {
+        if (element.style.transform == "rotate(90deg)")
+        {
+            element.style.transform = "rotate(180deg)";
+        }
+        else if (element.style.transform == "rotate(180deg)")
+        {
+            element.style.transform = "rotate(270deg)"
+        }
+        else if (element.style.transform == "rotate(270deg)") {
+            element.style.transform = "rotate(0deg)"
+        }
+        else {
+            element.style.transform = "rotate(90deg)"
+        }
+    }
 </script>
+@*<script>
+        document.getElementById('sampleImage').onload = function (e) {
+            loadImage(
+                "https://westgateproject.blob.core.windows.net/blob1/2017-07-31%20PM%204%3A47%3A05.jpg",
+                function (img) {
+
+                    document.getElementById('here').appendChild(img);
+                },
+                {
+                    orientation: true
+                }
+            );
+        };
+
+        document.getElementById('myImage').onload = function (e) {
+            loadImage(
+                "https://westgateproject.blob.core.windows.net/blob1/2017-07-31%20AM%2012%3A12%3A00.jpg",
+                function (img) {
+                    img.style.width = "710px"
+                    document.getElementById('here').appendChild(img)
+                },
+                {
+                    orientation: true
+                }
+            );
+        };
+
+    </script>*@

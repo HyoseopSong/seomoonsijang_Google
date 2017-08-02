@@ -2,7 +2,7 @@
 {
     <ul class="nav navbar-nav navbar-right">
 
-        <li><a>@HttpContext.Current.User.Identity.Name</a></li>
+        <li>@Html.ActionLink(HttpContext.Current.User.Identity.Name, "Contact", "Home")</li>
 
     </ul>
 }
